@@ -1,0 +1,81 @@
+html{
+    background-color: rgb(240, 255, 255);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1, h2{
+    text-align: center;
+    margin: 30px;
+}
+
+.cnt1{ 
+    background-color: rgb(255, 255, 255);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 3%;
+    border-style: solid;
+    border-color: brown;
+}
+
+.frmdj{
+    background-color: white;
+    padding: 15px;
+    margin: 0 auto;
+    width: 360px;
+}
+
+.frm_canciones{
+    background-color: blueviolet;
+    padding: 0%;
+}
+
+.ctd{
+    margin-top: 30px;
+}
+
+.pure-button{
+    margin: 20px;
+}
+
+.crd{
+    background-color: rgb(18, 23, 95);
+    border-radius: 8px;
+    margin: 10px;
+    color: white;
+}
+
+.sctadmin{
+    background-color: white;
+}
+
+.scttabla {
+    padding: 20px;
+}
+
+.scttabla .pure-table{
+    margin: 0 auto;
+}
+
+div .pure-table{
+    margin: 0 auto;
+}
+
+tbody{
+    background-color: white;
+}
+
+.pure-table td, 
+.pure-table th {
+    border: 1px solid #ddd;
+}
+
+.alert{
+    color: red;
+}
+
+section{
+    background-color: aquamarine;
+    margin: 0 auto;
+    width: 90%;
+    padding: 2%;
+}
