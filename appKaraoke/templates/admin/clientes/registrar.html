@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Registrar Clientes{% endblock %}
+
+{% block content %}
+<h1>Registrar Clientes</h1>
+        <div class="cnt1">
+        <form class="pure-form" action="/grabar_cliente/" method="POST">{% csrf_token %}
+            <fieldset>
+                
+                <div>
+                    <label>Nombre:</label><br>
+                    <input name="nombre" class="pure-input pure-input-2-1" type="text">
+                </div>
+                
+                <div>
+                    <label>Número:</label><br>
+                    <input name="numero" class=" pure-input-2-1" type="text">
+                </div>
+
+                <div>
+                    <label>DNI:</label><br>
+                    <input name="dni" class="pure-input-2-1" type="text" required="">
+                </div>
+                
+
+            </fieldset>
+
+            <button class="pure-button pure-button-primary">Actualizar</button><br>
+            
+        </form>
+    </div>
+{% endblock%}

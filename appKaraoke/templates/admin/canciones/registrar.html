@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Registrar Canciones{% endblock %}
+
+{% block content %}
+<h2>Registrar Canción</h2><hr>
+
+    <form class="pure-form" action="/grabarCancion/" method="POST">{% csrf_token %}
+                    
+        <fieldset>
+            <input id="nombre" name="nombre" class="pure-input-2-3" type="text" placeholder="Nombre de la canción" required=""><br><br>
+                        
+            <input id="artista" name="artista" class="pure-input-1-3" type="text" placeholder="Artista" required="">
+                        <select id="modo" name="modo">
+                            <option value="0">Seleccionar modo</option>
+                            <option value="letra">Letra</option>
+                            <option value="karaoke">Karaoke</option>
+                        </select>
+                        
+                        <select id="mesa" name="mesa">
+                            <option value="0">Pedida por</option>
+                            {% for mesa in lstmesas %}
+                            <option value="{{mesa.id}}">Mesa {{mesa.numero}}</option>
+                            {% endfor %}
+                        </select>
+                        
+                        <button class="pure-button pure-button-primary">Guardar</button>
+                    </fieldset>
+        </form>
+        
+{% endblock%}

@@ -1,0 +1,37 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Actualizar Cliente{% endblock %}
+
+{% block content %}
+<h1>Actualizar Cliente</h1>
+        <div class="cnt1">
+        <form class="pure-form" action="/actualizar_cliente/" method="POST">{% csrf_token %}
+            <fieldset>
+                <div>
+                    <label>Codigo:</label><br>
+                    <input id="id" name="id" class="pure-input pure-input-2-1" type="text" value="{{cl.id}}" readonly>
+                </div>
+
+                <div>
+                    <label>Nombre:</label><br>
+                    <input name="nombre" class="pure-input pure-input-2-1" type="text" value="{{cl.nombre}}">
+                </div>
+                
+                <div>
+                    <label>Número:</label><br>
+                    <input name="numero" class=" pure-input-2-1" type="text" value="{{cl.numero}}">
+                </div>
+
+                <div>
+                    <label>DNI:</label><br>
+                    <input name="dni" class="pure-input-2-1" type="text" value="{{cl.dni}}" required="">
+                </div>
+                
+
+            </fieldset>
+
+            <button class="pure-button pure-button-primary">Actualizar</button><br>
+            
+        </form>
+    </div>
+{% endblock%}

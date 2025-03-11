@@ -9,12 +9,11 @@ h1, h2{
 }
 
 .cnt1{ 
-    background-color: rgb(255, 255, 255);
+    background-color: #aaaaaa;
     max-width: 500px;
     margin: 0 auto;
     padding: 3%;
-    border-style: solid;
-    border-color: brown;
+    border-radius: 10px;
 }
 
 .frmdj{
@@ -75,4 +74,37 @@ section{
     margin: 0 auto;
     width: 90%;
     padding: 2%;
+}
+
+input, select{
+    margin-bottom: 20px;
+}
+
+.pure-table td, 
+.pure-table th {
+    border: 1px solid #ddd;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+}
+  
+li a:hover {
+    background-color: #4e4e4e;
 }

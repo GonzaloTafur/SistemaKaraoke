@@ -1,0 +1,42 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Registrar Mesas{% endblock %}
+
+{% block content %}
+<h1>Registrar Clientes</h1>
+    <div class="cnt1">
+        <form class="pure-form" action="/grabar_mesa/" method="POST">{% csrf_token %}
+            <fieldset>
+                
+                <div class="pure-u-1-2">
+                    <label>Número:</label><br>
+                    <input id="numero" name="numero" class=" pure-input-2-1" type="text">
+                </div>
+
+                <div class="pure-u-1-3">
+                <label>Cliente:</label><br>
+                    <select id="cliente" name="cliente">
+                        <option value="0">¿Tiene clientes?</option>
+                        {% for cl in lstclientes %}
+                        <option value="{{cl.id}}">{{cl.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div>
+                    <label>Estado:</label><br><br>
+                    
+                        <input id="ocupado" name="estado" class="pure-input-2-1" type="radio" value="False">
+                        <label for="ocupado">Ocupado</label><br>
+
+                        <input id="desocupado" name="estado" class="pure-input-2-1" type="radio" value="True">
+                        <label for="desocupado">Desocupado</label>
+                </div>      
+
+            </fieldset>
+
+            <button class="pure-button pure-button-primary">Grabar</button><br>
+            
+        </form>
+    </div>
+{% endblock %}

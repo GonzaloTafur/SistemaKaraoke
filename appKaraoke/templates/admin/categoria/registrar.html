@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Registrar Categoría{% endblock %}
+
+{% block content %}
+<h1>Registrar Categoría</h1>
+<div class="cnt1">
+    <form class="pure-form" action="/grabar_categoria/" method="POST">
+        <fieldset>
+            
+            <div>
+                <label>Nombre:</label><br>
+                <input class="pure-input pure-input-2-1" type="text">
+            </div>
+            
+            <div>
+                <label>Número:</label><br>
+                <input class=" pure-input-2-1" type="text">
+            </div>
+
+            <div>
+                <label>DNI:</label><br>
+                <input class="pure-input-2-1" type="text" required="">
+            </div>
+            
+
+        </fieldset>
+
+        <button class="pure-button pure-button-primary">Actualizar</button><br>
+        
+    </form>
+</div>
+{% endblock %}

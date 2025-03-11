@@ -21,4 +21,5 @@ from appKaraoke import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('appKaraoke.urls')),
+    path('', include('appKaraoke_admin.urls')),
 ]
