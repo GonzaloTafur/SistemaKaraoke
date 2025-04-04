@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Registrar producto{% endblock %}
+
+{% block content %}
+<h1>Registrar Producto</h1>
+<div class="cnt1" style="max-width: 750px;">
+<form class="pure-form" enctype="multipart/form-data" action="/grabar_producto/" method="POST">{% csrf_token %}
+    <fieldset>
+        
+        <div class="pure-u-1-3">
+            <label>Nombre:</label><br>
+            <!--<input id="nombre" name="nombre" class="pure-input pure-input-2-1" type="text" required="">-->
+            {{frmprod.nombre}}
+
+            <div>
+            <label>Categoría:</label><br>
+            <!--<select id="categoria" name="categoria">
+                <option value="0">Seleccionar</option>
+                {% for ct in cbxcat %}
+                <option value="{{ct.id}}">{{ct.nombre}}</option>
+                {% endfor %}
+            </select>-->
+            {{frmprod.categoria}}
+            </div>
+
+            <div>
+                <label>Precio:</label><br>
+                <!--<input id="precio" name="precio" class="pure-input-2-1" type="number" step="0.01" required="">-->
+                {{frmprod.precio}}
+            </div>
+        </div>
+
+        <div class="pure-u-1-3">
+            <label>Foto:</label><br>
+            <img id="blah" src="#" style="width: 200px; background-color:#e2e2e2"/>
+            <br><br>
+            <!--<input class="pure-input-1-1" accept="image/*" type='file' id="foto" name="foto"/>-->
+            {{frmprod.foto}}
+        </div>
+
+        
+        <div>
+            <label>Descripción:</label><br>
+            <!--<textarea rows="5" cols="55" id="descripcion" name="descripcion"></textarea>-->
+            {{frmprod.descripcion}}
+        </div>
+        
+
+    </fieldset>
+
+    <button class="pure-button pure-button-primary">Grabar</button>
+    
+</form>
+</div>
+
+<script>
+    foto.onchange = evt => {
+        const [file] = foto.files
+        if (file) {
+          blah.src = URL.createObjectURL(file)
+        }
+    }
+</script>
+{% endblock %}

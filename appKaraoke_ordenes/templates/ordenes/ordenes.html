@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Ordenes</title>
+</head>
+
+<body>
+
+    <section>
+        <div class="frmordenes">
+                <h2>Registrar orden</h2><hr>
+                
+                <form class="pure-form" action="/grabar_orden/" method="POST">{% csrf_token %}
+
+                    <div class="pure-u-1-4 frmdj">
+                        <fieldset>
+                            <!--<p class="alert">La mesa tiene un cliente que necesita registrar su DNI</p>-->
+
+                            <!--<select id="mesa" name="mesa">
+                                <option value="0">¿Quien a ordenado?</option>
+                                {% for m in cbxmesas %}
+                                <option value="{{m.id}}">{{m.numero}}</option>
+                                {% endfor %}
+                            </select>-->
+                            <div>
+                                {{ frmorden.mesa_cliente }}
+                            </div>
+                            <div>
+                                <!--<span>S/</span><input id="total" name="total" type="number" step="0.01" placeholder="precio total" required="">
+                                <span>S/</span><input id="total" name="total" placeholder="precio total" readonly>-->
+                                {{ frmorden.total }}
+                            </div>
+                                                        
+                            <button class="pure-button pure-button-primary">Grabar</button>
+            
+                        </fieldset>
+                    </div>
+
+                    <div class="pure-u-2-3">
+                        {{frmorden.producto}}
+                        <!--<table class="pure-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Categoría</th>
+                                    <th>Precio</th>
+                                    <th>Descripción</th>
+                                    <th>Imagen</th>
+                                    <th>Seleccionar</th> 
+                                </tr>         
+                            </thead>
+
+                            <tbody>
+                                {% for p in form.producto %}
+                                <tr>
+                                    <th>{{p.nombre}}</th>
+                                    <th>{{p.categoria.nombre}}</th>
+                                    <th>S/{{p.precio}}</th>
+                                    <th>{{p.descripcion}}</th>
+                                    <th><img src="{{ p.foto.url }}" width="100"/></th>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>-->
+                    </div>
+                </form>
+
+                
+        </div><hr>
+
+        <div>
+            <a type="button" class="pure-button pure-button-primary" href="{% url 'registrar_mc' %}" method="GET">Registrar Cliente</a>
+            <a type="button" class="pure-button pure-button-secondary" href="{% url 'lista' %}" method="GET">Ordenes realizadas hoy</a>
+        </div>
+    </section>
+</body>
+
+<!--<script>
+function Sumar(){
+    let total = 0;
+    let valores = document.querySelectorAll("productos");
+
+    valores.forEach(function(checkbox){
+        if (checkbox.checked){
+            total += parseFloat(checkbox.value);
+        }
+    });
+    
+    document.getElementById("total").value = total.toFixed(2);
+}
+</script>-->
+
+</html>

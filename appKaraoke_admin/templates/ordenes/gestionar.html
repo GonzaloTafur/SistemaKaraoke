@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Gestionar Ordenes{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Gestionar Ordenes</h1> 
+     <table class="pure-table pure-table-bordered">
+         <thead>
+             <tr>
+                 <th>Codigo</th>
+                 <th>Hora</th>
+                 <th>Mesa</th>
+                 <th>Producto(s)</th>
+                 <th>Total</th>
+                 <th>Estado</th>
+
+                 <th>Editar</th>
+                 <th>Eliminar</th>
+         </thead>
+         <tbody>
+             {% for o in lstordenes %}
+             <tr>
+                 <th>{{o.id}}</th>
+                 <th>{{o.hora}}</th>
+                 <th>{{o.mesa_cliente}}</th>
+                 <th>
+                    {% for op in o.producto.all %}
+                        {{op.nombre}} - S/{{op.precio}}<hr>
+                    {% endfor %}
+                </th>
+                 <th>S/{{o.total}}</th>
+                 <th>{{o.estado}}</th>
+                 
+                 <th><a href="{% url 'editar_o' o.id %}"><i class="fa fa-edit"></i></a></th>
+                 <th><a class="alert" href="{% url 'eliminar_o' o.id %}"><i class="fa fa-trash"></i></a></th>
+             </tr>
+             {% endfor %}
+         </tbody>
+     </table>
+
+     <button class="pure-button pure-button-secondary" action="" method="get">Retroceder</button>
+     
+ </div>
+{% endblock %}

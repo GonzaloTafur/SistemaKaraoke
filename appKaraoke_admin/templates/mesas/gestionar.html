@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Gestionar Mesas{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Gestionar Mesas</h1>
+
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Numero</th>
+                    <th>Estado</th>
+
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in lstmesas %}
+                <tr>
+                    <th>{{m.id}}</th>
+                    <th>{{m.numero}}</th>
+                    <th>{{m.estado}}</th>
+                    <th><a method="GET"><i class="fa fa-edit"></i></a></th>
+                    <th><a class="alert" method="GET"><i class="fa fa-trash"></i></a></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button class="pure-button pure-button-secondary" action="" method="get">Retroceder</button>
+        <a type="button" class="pure-button pure-button-primary" href="{% url 'registrar_m' %}" method="GET">Registrar nueva mesa</a>
+        
+    </div>
+{% endblock %}

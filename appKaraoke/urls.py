@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.login),
     #path('principal/', views.principal),
     path('dj/', views.dj),
-    path('grabarCancion/', views.grabar_cancion)
+    path('grabar_orden_cancion/', views.grabar_cancion),
+    path('eliminar_orden_cancion/<id>', views.eliminarOrdenCancion, name="eliminar_oc")
 ]

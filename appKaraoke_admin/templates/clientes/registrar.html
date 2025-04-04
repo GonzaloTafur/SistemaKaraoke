@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Registrar Clientes{% endblock %}
+
+{% block content %}
+<h1>Registrar Clientes</h1>
+        <div class="cnt1">
+        <form class="pure-form" action="/grabar_cliente/" method="POST">{% csrf_token %}
+            <fieldset>
+                
+                <div>
+                    <label>Nombre:</label><br>
+                    {{form.nombre}}
+                </div>
+
+                <div>
+                    <label>DNI:</label><br>
+                    {{form.dni}}
+                </div>
+                
+                <div>
+                    <label>Número:</label><br>
+                    {{form.numero}}
+                </div>
+
+                <!--<table>
+                    {{form.as_table}}
+                </table>-->
+
+            </fieldset>
+            
+            <button class="pure-button pure-button-primary">Registrar</button><br>
+            
+        </form>
+    </div>
+{% endblock%}

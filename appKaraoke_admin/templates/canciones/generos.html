@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Gestionar Generos{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Gestionar Generos</h1>
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for g in lstgeneros %}
+            <tr>
+                <th>{{g.id}}</th>
+                <th>{{g.nombre}}</th>
+                <th>{{g.estado}}</th>
+
+                <th><a href="#"><i class="fa fa-edit"></i></a></th>
+                <th><a class="alert" href="#"><i class="fa fa-trash"></i></a></th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="pure-button pure-button-secondary" href="{% url 'canciones' %}" method="get">Retroceder</a>
+    
+    <hr>
+    <div class="cnt1">
+        <h3>Registrar nuevo Género</h3>
+    
+        <form class="pure-form" action="/grabar_genero/" method="POST">{% csrf_token %}
+            <fieldset>
+                <div>
+                    <label>Nombre</label>
+                    {{frmgen.nombre}}
+                </div>
+            </fieldset>
+            <button class="pure-button pure-button-primary">Grabar</button>
+        </form>
+    </div>
+    
+</div>
+
+{% endblock%}

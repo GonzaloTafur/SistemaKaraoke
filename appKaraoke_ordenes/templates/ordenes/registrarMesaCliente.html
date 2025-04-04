@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/tables-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" 
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Registrar mesa y cliente</title>
+</head>
+
+<body>
+
+    <section class="sctadmin">
+        <h1>Registrar mesa y cliente</h1>
+            <div class="cnt1">
+            <form class="pure-form" action="/grabar_mesacliente/" method="POST">{% csrf_token %}
+                <fieldset>
+                    
+                    <div>
+                        <label>Mesa:</label><br>
+                        {{frmmc.mesa}}
+                    </div>
+
+                    <div>
+                        <label>Cliente:</label><br>
+                        {{frmmc.cliente}}
+                    </div>
+
+                </fieldset>
+
+                <button class="pure-button pure-button-primary">Grabar</button>
+                
+            </form>
+            <a href="{% url 'registrar_cl' %}">¿Tenemos un cliente nuevo?</a>
+            </div>
+    </section>
+
+</body>
+</html>

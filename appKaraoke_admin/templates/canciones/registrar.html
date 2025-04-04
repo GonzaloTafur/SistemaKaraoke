@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Registrar Cancion{% endblock %}
+
+{% block content %}
+<h2>Registrar Canción</h2><hr>
+<div class="cnt1">
+    <form class="pure-form" action="/grabar_cancion/" method="POST">{% csrf_token %}                
+        <fieldset>
+            <div>
+                <label>Nombre:</label><br>
+                {{frmcancion.nombre}}
+            </div>  
+
+            <div>
+                <label>Artista:</label><br>
+                {{frmcancion.artista}}
+            </div>
+            
+            <div>
+                <label>Género:</label><br>
+                {{frmcancion.genero}}
+            </div>
+          
+            <button class="pure-button pure-button-primary">Guardar</button>
+            
+        </fieldset>
+    </form>
+</div>        
+{% endblock%}

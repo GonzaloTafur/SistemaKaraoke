@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Actualizar Cancion{% endblock %}
+
+{% block content %}
+<h2>Actualizar Canción</h2><hr>
+
+<div class="cnt1">
+    <form class="pure-form" action="/actualizar_cancion/" method="POST">{% csrf_token %}
+                    
+        <fieldset>
+            <div>
+            <input id="id" name="id" value="{{ca.id}}" readonly></div>
+
+            <div>
+                <input id="nombre" name="nombre" class="pure-input-2-1" type="text" placeholder="Nombre de la canción" value="{{ca.nombre}}" required="">
+            </div> 
+
+            <div>          
+                <input id="artista" name="artista" class="pure-input-2-1" type="text" placeholder="Artista" value="{{ca.artista}}" required="">
+            </div>
+            
+            <div>   
+                <input id="genero" name="genero" class="pure-input-2-1" placeholder="Genero" value="{{ca.genero}}">
+            </div>
+                        
+                        <button class="pure-button pure-button-primary">Guardar</button>
+                    </fieldset>
+        </form>
+</div>        
+{% endblock%}

@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Ordenes</title>
+</head>
+
+<body>
+
+    <section>
+        <div class="frmordenes">
+                <h2>Lista de ordenes</h2><hr>
+                
+                <table class="pure-table pure-table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Cliente</th>
+                            <th>Producto(s)</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+           
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                    </thead>
+                    <tbody>
+                        {% for o in lstordenes %}
+                        <tr>
+                            <th>{{o.hora}}</th>
+                            <th>{{o.mesa_cliente}}</th>
+                            <th>
+                               {% for op in o.producto.all %}
+                                   {{op.nombre}} - S/{{op.precio}}<br>
+                               {% endfor %}
+                            </th>
+                            <th>S/{{o.total}}</th>
+                            <th>{{o.estado}}</th>
+                            
+                            <th><a href="#"><i class="fa fa-edit"></i></a></th>
+                            <th><a class="alert" href="#"><i class="fa fa-trash"></i></a></th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                
+        </div><hr>
+
+        <div>
+            <a type="button" class="pure-button pure-button-primary" href="{% url 'registrar_cl' %}" method="GET">Registrar Cliente</a>
+            <a type="button" class="pure-button pure-button-secondary" href="{% url 'ordenes' %}" method="GET">Volver a registrar orden</a>
+        </div>
+    </section>
+</body>
+
+<!--<script>
+function Sumar(){
+    let total = 0;
+    let valores = document.querySelectorAll("productos");
+
+    valores.forEach(function(checkbox){
+        if (checkbox.checked){
+            total += parseFloat(checkbox.value);
+        }
+    });
+    
+    document.getElementById("total").value = total.toFixed(2);
+}
+</script>-->
+
+</html>

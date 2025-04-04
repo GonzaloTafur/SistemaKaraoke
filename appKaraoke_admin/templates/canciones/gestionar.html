@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Gestionar Canciones{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Gestionar Canciones</h1>
+    <a href="{% url 'generos' %}">Gestionar generos musicales</a>
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Canción</th>
+                <th>Artista</th>
+                <th>Genero</th>
+                <th>Estado</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ca in lstcanciones %}
+            <tr>
+                <th>{{ca.id}}</th>
+                <th>{{ca.nombre}}</th>
+                <th>{{ca.artista}}</th>
+                <th>{{ca.genero}}</th>
+                <th>{{ca.estado}}</th>
+                <th><a href="{% url 'editar_ca' ca.id %}"><i class="fa fa-edit"></i></a></th>
+                <th><a class="alert" href="{% url 'eliminar_ca' ca.id %}"><i class="fa fa-trash"></i></a></th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="pure-button pure-button-secondary" action="" method="get">Retroceder</button>
+    <a type="button" class="pure-button pure-button-primary" href="{% url 'registrar_ca' %}" method="GET">Registrar nueva Cancion</a>
+</div>
+{% endblock %}

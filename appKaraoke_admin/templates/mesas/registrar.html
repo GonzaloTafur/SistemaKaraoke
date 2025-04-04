@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Registrar mesa{% endblock %}
+
+{% block content %}
+<h1>Registrar Mesa</h1>
+<div class="cnt1">
+<form class="pure-form" enctype="multipart/form-data" action="/grabar_mesa/" method="POST">{% csrf_token %}
+    <fieldset>
+        <div>
+            {{frmmesa.numero}}
+        </div>
+        <div>
+            {{frmmesa.estado}}
+        </div>
+
+    </fieldset>
+
+    <button class="pure-button pure-button-primary">Grabar</button>
+    
+</form>
+</div>
+{% endblock %}

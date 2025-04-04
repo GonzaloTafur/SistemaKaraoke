@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Actualizar Orden{% endblock %}
+
+{% block content %}
+<h1>Actualizar Orden</h1>
+        <div class="frmordenes">
+        <form class="pure-form" action="/actualizar_orden/" method="POST">{% csrf_token %}
+           
+        </form>
+    </div>
+{% endblock%}

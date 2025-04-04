@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('appKaraoke.urls')),
     path('', include('appKaraoke_admin.urls')),
+    path('', include('appKaraoke_ordenes.urls')),
 ]

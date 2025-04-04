@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Gestionar Categorias{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Gestionar Categorias</h1>
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ct in lstcategorias %}
+            <tr>
+                <th>{{ct.id}}</th>
+                <th>{{ct.nombre}}</th>
+                <th>{{ct.estado}}</th>
+
+                <th><a href="#"><i class="fa fa-edit"></i></a></th>
+                <th><a class="alert" href="#"><i class="fa fa-trash"></i></a></th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="pure-button pure-button-secondary" href="{% url 'productos' %}" method="get">Retroceder</a>
+    
+    <hr>
+    <div class="cnt1">
+        <h3>Registrar nueva Categoría</h3>
+    
+        <form class="pure-form" action="/grabar_categoria/" method="POST">{% csrf_token %}
+            <fieldset>
+                <div>
+                    <label>Nombre</label>
+                    {{frmcat.nombre}}
+                </div>
+            </fieldset>
+            <button class="pure-button pure-button-primary">Grabar</button>
+        </form>
+    </div>
+    
+</div>
+
+{% endblock%}

@@ -1,6 +1,7 @@
 from django import forms
 from django.shortcuts import redirect, render
-from appKaraoke.models import Cancion, Mesa
+from appKaraoke.forms import frmOrdenCancion
+from appKaraoke.models import Cancion, Mesa, MesaCliente, OrdenCancion
 
 # Create your views here.
 
@@ -10,31 +11,39 @@ def login(request):
 
 # USUARIO DJ
 def dj(request):
-    lstcanciones = Cancion.objects.all()
-    lstmesas = Mesa.objects.all()
-
-    return render(request, 
-                    "dj/canciones.html", 
-                    {"lstcanciones":lstcanciones, 
-                     "lstmesas":lstmesas})
+    #cbxcanciones = Cancion.objects.all()
+    #cbxmesas = MesaCliente.objects.all()
+    lstoc = OrdenCancion.objects.filter(estado=True)
+    frmoc = frmOrdenCancion(request.POST)
+    return render(request, "dj/canciones.html", {"frmoc":frmoc, "lstoc":lstoc})
 
 def grabar_cancion(request):
+
+    if request.method=="POST":
+        frmoc = frmOrdenCancion(request.POST)
+
+        if frmoc.is_valid():
+            cd = frmoc.cleaned_data
+            
+            nuevaCancion = OrdenCancion(
+                cancion = Cancion.objects.get(id = request.POST['cancion']),
+                mesa_cliente = MesaCliente.objects.get(id = request.POST['mesa_cliente'])
+            )
+            nuevaCancion.save()
+
+            print("Se registró correctamente")
+            return redirect("/dj/")
         
-        #Mesa.objects.get(request.POST["mesa"])
-        '''
-        nombre = request.POST["nombre"]
-        artista = request.POST["artista"]
-        modo = request.POST["modo"]
-        #mesa = request.POST["mesa"]
-        mesa = Mesa.objects.get(id = request.POST['mesa'])
-        '''
-
-        nuevaCancion = Cancion.objects.create(
-            nombre = request.POST["nombre"],
-            artista= request.POST["artista"],
-            modo = request.POST["modo"],
-            mesa = Mesa.objects.get(id = request.POST['mesa'])
-        )
-
-        #print("Se registró correctamente")
+    else:
+        print("No se pudo guardar")
         return redirect("/dj/")
+
+def eliminarOrdenCancion(request, id):
+    
+    oc = OrdenCancion.objects.get(id=id)
+
+    if oc.estado == True:
+        oc.estado = False
+        oc.save()
+        
+    return redirect("/dj/")

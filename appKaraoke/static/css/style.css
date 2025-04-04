@@ -20,20 +20,15 @@ h1, h2{
     background-color: white;
     padding: 15px;
     margin: 0 auto;
-    width: 360px;
+    width: 380px;
 }
 
 .frm_canciones{
-    background-color: blueviolet;
     padding: 0%;
 }
 
 .ctd{
     margin-top: 30px;
-}
-
-.pure-button{
-    margin: 20px;
 }
 
 .crd{
@@ -108,3 +103,35 @@ li a {
 li a:hover {
     background-color: #4e4e4e;
 }
+
+/* MODAL/VENTANA EMERGENTE */
+.button-error{
+    background-color:red;
+    color: white;
+}
+
+#modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.ventana-modal{
+    background-color: white;
+    width: 600px;
+    padding: 1% 2% 2% 2%;
+    margin: 0 auto;
+}
+
+.borrar{
+    background-color: red;
+    color: white;
+}
+

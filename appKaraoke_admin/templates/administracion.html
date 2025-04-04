@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"></html>
+<head>
+    {% load static %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>Principal</title>
+    </head>
+
+    <div>
+        <h1>Administración</h1>
+            <section>
+                <div class="pure-g">
+                    <div class="pure-u-2-2 crd">
+                        <h2>Empleados <i class="fa fa-user"></i></h2><hr>
+                        <a class="pure-button pure-button-primary">Gestionar</a>
+                        <button class="pure-button pure-button-empleados">Transacciones</button>
+                    </div>
+        
+                    <div class="pure-u-2-2 crd">
+                        <h2>Roles de Empleados <i class="fa fa-circle"></i></h2>
+                        <hr><a class="pure-button pure-button-primary">Gestionar</a>
+                        <button class="pure-button pure-button-empleados">Transacciones</button>
+                    </div>
+                    
+                    <div class="pure-u-2-2 crd">
+                        <h2>Productos <i class="fa fa-beer"></i></h2>
+                        <hr><a class="pure-button pure-button-primary" href="{% url 'productos' %}" method="GET">Gestionar</a>
+                        <button class="pure-button pure-button-empleados">Transacciones</button>
+                    </div>
+        
+                    <div class="pure-u-2-2 crd">
+                        <h2>Canciones <i class="fa fa-music"></i></h2>
+                        <hr><a class="pure-button pure-button-primary" href="{% url 'canciones' %}" method="GET">Gestionar</a>
+                        <button class="pure-button pure-button-empleados">Transacciones</button>
+                    </div>
+        
+                    <div class="pure-u-2-2 crd">
+                        <h2>Clientes <i class="fa fa-user"></i></h2>
+                        <hr><a class="pure-button pure-button-primary" href="{% url 'clientes' %}" method="GET">Gestionar</a>
+                        <button class="pure-button pure-button-empleados">Transacciones</button>
+                    </div>
+        
+                    <div class="pure-u-2-2 crd">
+                        <h2>Mesas <i class="fa fa-book"></i></h2>
+                        <hr><a class="pure-button pure-button-primary" href="{% url 'mesas' %}" method="GET">Gestionar</a>
+                        <button class="pure-button pure-button-empleados">Transacciones</button>
+                    </div>
+
+                    <div class="pure-u-2-2 crd">
+                        <h2>Ordenes <i class="fa fa-book"></i></h2>
+                        <hr><a class="pure-button pure-button-primary" href="{% url 'ver_ordenes' %}" method="GET">Gestionar</a>
+                        <button class="pure-button pure-button-empleados">Transacciones</button>
+                    </div>
+                </div>
+                
+            </section>
+        </div>

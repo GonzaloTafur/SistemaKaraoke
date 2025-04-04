@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/tables-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" 
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+
+    <div>
+        <ul>
+            <li style="background-color: #4e4e4e;"><a href="{% url 'principal' %}">PRINCIPAL</a></li>
+            <li><a href="{% url 'mesas' %}">Mesas</a></li>
+            <li><a href="#">Empleados</a></li>
+            <li><a href="{% url 'clientes' %}">Clientes</a></li>
+            <li><a href="{% url 'canciones' %}">Canciones</a></li>
+            <li><a href="{% url 'productos' %}">Productos</a></li>
+            <li><a href="{% url 'ordenes' %}">Ordenes</a></li>
+            <li style="float:right"><a href="#">Cuenta</a></li>
+        </ul>
+    </div>
+
+    <section class="sctadmin">
+        {% block content %}   
+        {% endblock %}
+    </section>
+
+</body>
+</html>
